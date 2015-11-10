@@ -15,7 +15,7 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;在handler的post方法中设置一个执行较长任务的Runable对象（称为任务A），然后再这段代码 &lt;strong&gt;&lt;em&gt;之后&lt;/em&gt;&lt;/strong&gt; 同样执行一段任务代码（称为任务B），请问那个任务先执行？并解释原因。
 例如：
- protected void onCreate(Bundle savedInstanceState) {
+protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     mHandler.post(new Runnable() {
@@ -49,9 +49,9 @@ try {
 &lt;/ol&gt;
 
 &lt;p&gt;衍生问题：
-   1.post方法的参数Runnable运行在哪个线程中，这个方法没有提供delay参数是不是立即运行？
-   2.底层是怎么样的处理机制？
-   3.Runnable 中的任务跟主线程的任务是异步执行的么？&lt;/p&gt;
+1.post方法的参数Runnable运行在哪个线程中，这个方法没有提供delay参数是不是立即运行？
+2.底层是怎么样的处理机制？
+3.Runnable 中的任务跟主线程的任务是异步执行的么？&lt;/p&gt;
 
 &lt;h2&gt;Android Service相关问题&lt;/h2&gt;
 
