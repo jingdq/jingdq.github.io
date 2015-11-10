@@ -58,6 +58,18 @@
 &lt;h2&gt;Android Service相关问题&lt;/h2&gt;
 
 &lt;p&gt;1.能够多次启动同一个服务么？能够多次绑定同一个服务么？在启动一个服务的同时能够绑定它么？多次绑定一个服务，如果中断某个绑定，其他绑定者会是什么状态？&lt;/p&gt;
+
+&lt;h2&gt;Android IPC相关问题&lt;/h2&gt;
+
+&lt;h2&gt;Android View 以及自定义View 、View事件相关问题&lt;/h2&gt;
+
+&lt;h2&gt;Android数据持久化问题&lt;/h2&gt;
+
+&lt;h2&gt;Android 网络通信问题&lt;/h2&gt;
+
+&lt;h2&gt;Android 性能优化问题&lt;/h2&gt;
+
+&lt;h2&gt;Anroid 安全性问题&lt;/h2&gt;
 </description>
         <pubDate>Tue, 10 Nov 2015 00:00:00 +0800</pubDate>
         <link>/android-question/</link>
