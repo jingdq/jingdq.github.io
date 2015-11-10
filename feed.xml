@@ -14,38 +14,40 @@
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;在handler的post方法中设置一个执行较长任务的Runable对象（称为任务A），然后再这段代码 &lt;strong&gt;&lt;em&gt;之后&lt;/em&gt;&lt;/strong&gt; 同样执行一段任务代码（称为任务B），请问那个任务先执行？并解释原因。
-例如：
-protected void onCreate(Bundle savedInstanceState) {
+例如：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     mHandler.post(new Runnable() {
         @Override
-        public void run() {&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;        try {
-            for (int i = 0; i &amp;lt; 100; i++) {
-                Thread.sleep(1000);
-                Log.i(&amp;quot;xxx&amp;quot;, Thread.currentThread() + &amp;quot; i : &amp;quot; + i);
+        public void run() {
 
+            try {
+                for (int i = 0; i &amp;lt; 100; i++) {
+                    Thread.sleep(1000);
+                    Log.i(&amp;quot;xxx&amp;quot;, Thread.currentThread() + &amp;quot; i : &amp;quot; + i);
+
+                }
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        }
+    });
+    try {
+        for (int i = 0; i &amp;lt; 100; i++) {
+            Thread.sleep(1000);
+            Log.i(&amp;quot;xxx&amp;quot;, Thread.currentThread() + &amp;quot; j : &amp;quot; + i);
+
         }
 
-    }
-});
-try {
-    for (int i = 0; i &amp;lt; 100; i++) {
-        Thread.sleep(1000);
-        Log.i(&amp;quot;xxx&amp;quot;, Thread.currentThread() + &amp;quot; j : &amp;quot; + i);
-
+    } catch (InterruptedException e) {
+        e.printStackTrace();
     }
 
-} catch (InterruptedException e) {
-    e.printStackTrace();
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;}&lt;/p&gt;&lt;/li&gt;
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;衍生问题：

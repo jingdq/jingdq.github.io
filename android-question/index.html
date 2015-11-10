@@ -61,38 +61,40 @@
 
 <ol>
 <li><p>在handler的post方法中设置一个执行较长任务的Runable对象（称为任务A），然后再这段代码 <strong><em>之后</em></strong> 同样执行一段任务代码（称为任务B），请问那个任务先执行？并解释原因。
-例如：
-protected void onCreate(Bundle savedInstanceState) {
+例如：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     mHandler.post(new Runnable() {
         @Override
-        public void run() {</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">        try {
-            for (int i = 0; i &lt; 100; i++) {
-                Thread.sleep(1000);
-                Log.i(&quot;xxx&quot;, Thread.currentThread() + &quot; i : &quot; + i);
+        public void run() {
 
+            try {
+                for (int i = 0; i &lt; 100; i++) {
+                    Thread.sleep(1000);
+                    Log.i(&quot;xxx&quot;, Thread.currentThread() + &quot; i : &quot; + i);
+
+                }
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        }
+    });
+    try {
+        for (int i = 0; i &lt; 100; i++) {
+            Thread.sleep(1000);
+            Log.i(&quot;xxx&quot;, Thread.currentThread() + &quot; j : &quot; + i);
+
         }
 
-    }
-});
-try {
-    for (int i = 0; i &lt; 100; i++) {
-        Thread.sleep(1000);
-        Log.i(&quot;xxx&quot;, Thread.currentThread() + &quot; j : &quot; + i);
-
+    } catch (InterruptedException e) {
+        e.printStackTrace();
     }
 
-} catch (InterruptedException e) {
-    e.printStackTrace();
-}
-</code></pre></div>
-<p>}</p></li>
+  }
+</code></pre></div></li>
 </ol>
 
 <p>衍生问题：
