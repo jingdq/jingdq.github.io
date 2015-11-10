@@ -62,14 +62,13 @@
 <ol>
 <li><p>在handler的post方法中设置一个执行较长任务的Runable对象（称为任务A），然后再这段代码 <strong><em>之后</em></strong> 同样执行一段任务代码（称为任务B），请问那个任务先执行？并解释原因。
 例如：
-protected void onCreate(Bundle savedInstanceState) {
+ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">mHandler.post(new Runnable() {
-    @Override
-    public void run() {
-
-        try {
+    setContentView(R.layout.activity_main);
+    mHandler.post(new Runnable() {
+        @Override
+        public void run() {</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">        try {
             for (int i = 0; i &lt; 100; i++) {
                 Thread.sleep(1000);
                 Log.i(&quot;xxx&quot;, Thread.currentThread() + &quot; i : &quot; + i);
@@ -82,7 +81,6 @@ protected void onCreate(Bundle savedInstanceState) {
 
     }
 });
-
 try {
     for (int i = 0; i &lt; 100; i++) {
         Thread.sleep(1000);
