@@ -15,7 +15,7 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;在handler的post方法中设置一个执行较长任务的Runable对象（称为任务A），然后再这段代码 &lt;strong&gt;&lt;em&gt;之后&lt;/em&gt;&lt;/strong&gt; 同样执行一段任务代码（称为任务B），请问那个任务先执行？并解释原因。
 例如：
- protected void onCreate(Bundle savedInstanceState) {
+protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;mHandler.post(new Runnable() {
