@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Android 问题探索 – My technical gallery – Android Developer Gallery</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Android开发常见问题，不断更新中......
+" />
+    <meta property="og:description" content="Android开发常见问题，不断更新中......
+" />
+    
+    <meta name="author" content="My technical gallery" />
+
+    
+    <meta property="og:title" content="Android 问题探索" />
+    <meta property="twitter:title" content="Android 问题探索" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="My technical gallery - Android Developer Gallery" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="https://avatars0.githubusercontent.com/u/4002834?v=3&s=460" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">My technical gallery</a></h1>
+            <p class="site-description">Android Developer Gallery</p>
+          </div>
+
+          <nav>
+            <a href="/">Blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Android 问题探索</h1>
+
+  <div class="entry">
+    <p>Android开发常见问题，不断更新中......</p>
+
+<h2>Android消息处理相关问题</h2>
+
+<ol>
+<li><p>在handler的post方法中设置一个执行较长任务的Runable对象（称为任务A），然后再这段代码 <strong><em>之后</em></strong> 同样执行一段任务代码（称为任务B），请问那个任务先执行？并解释原因。
+例如：
+ protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">mHandler.post(new Runnable() {
+    @Override
+    public void run() {
+
+        try {
+            for (int i = 0; i &lt; 100; i++) {
+                Thread.sleep(1000);
+                Log.i(&quot;xxx&quot;, Thread.currentThread() + &quot; i : &quot; + i);
+
+            }
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+});
+
+try {
+    for (int i = 0; i &lt; 100; i++) {
+        Thread.sleep(1000);
+        Log.i(&quot;xxx&quot;, Thread.currentThread() + &quot; j : &quot; + i);
+
+    }
+
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+</code></pre></div>
+<p>}</p></li>
+</ol>
+
+<p>衍生问题：
+   1.post方法的参数Runnable运行在哪个线程中，这个方法没有提供delay参数是不是立即运行？
+   2.底层是怎么样的处理机制？
+   3.Runnable 中的任务跟主线程的任务是异步执行的么？</p>
+
+<h2>Android Service相关问题</h2>
+
+<p>1.能够多次启动同一个服务么？能够多次绑定同一个服务么？在启动一个服务的同时能够绑定它么？多次绑定一个服务，如果中断某个绑定，其他绑定者会是什么状态？</p>
+
+  </div>
+
+  <div class="date">
+    Written on November 10, 2015
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:dongqij@gmail.com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/jingdq"><i class="svg-icon github"></i></a>
+
+
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>

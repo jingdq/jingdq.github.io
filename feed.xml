@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My technical gallery</title>
+    <description>Android Developer Gallery</description>
+    <link></link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Android 问题探索</title>
+        <description>&lt;p&gt;Android开发常见问题，不断更新中......&lt;/p&gt;
+
+&lt;h2&gt;Android消息处理相关问题&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在handler的post方法中设置一个执行较长任务的Runable对象（称为任务A），然后再这段代码 &lt;strong&gt;&lt;em&gt;之后&lt;/em&gt;&lt;/strong&gt; 同样执行一段任务代码（称为任务B），请问那个任务先执行？并解释原因。
+例如：
+ protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;mHandler.post(new Runnable() {
+    @Override
+    public void run() {
+
+        try {
+            for (int i = 0; i &amp;lt; 100; i++) {
+                Thread.sleep(1000);
+                Log.i(&amp;quot;xxx&amp;quot;, Thread.currentThread() + &amp;quot; i : &amp;quot; + i);
+
+            }
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+});
+
+try {
+    for (int i = 0; i &amp;lt; 100; i++) {
+        Thread.sleep(1000);
+        Log.i(&amp;quot;xxx&amp;quot;, Thread.currentThread() + &amp;quot; j : &amp;quot; + i);
+
+    }
+
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;}&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;衍生问题：
+   1.post方法的参数Runnable运行在哪个线程中，这个方法没有提供delay参数是不是立即运行？
+   2.底层是怎么样的处理机制？
+   3.Runnable 中的任务跟主线程的任务是异步执行的么？&lt;/p&gt;
+
+&lt;h2&gt;Android Service相关问题&lt;/h2&gt;
+
+&lt;p&gt;1.能够多次启动同一个服务么？能够多次绑定同一个服务么？在启动一个服务的同时能够绑定它么？多次绑定一个服务，如果中断某个绑定，其他绑定者会是什么状态？&lt;/p&gt;
+</description>
+        <pubDate>Tue, 10 Nov 2015 00:00:00 +0800</pubDate>
+        <link>/android-question/</link>
+        <guid isPermaLink="true">/android-question/</guid>
+      </item>
+    
+      <item>
+        <title>Android Technical Aspects</title>
+        <description>&lt;p&gt;Android各个方面的技术汇总，不断完善中......&lt;/p&gt;
+
+&lt;h3&gt;架构&lt;/h3&gt;
+
+&lt;p&gt;1.&lt;a href=&quot;http://hannesdorfmann.com/android/mosby/&quot;&gt;TED MoSBY mvp的实现库  &lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;动态加载&lt;/h3&gt;
+
+&lt;h3&gt;自定义view&lt;/h3&gt;
+</description>
+        <pubDate>Mon, 09 Nov 2015 17:40:32 +0800</pubDate>
+        <link>/android-technical-aspects/</link>
+        <guid isPermaLink="true">/android-technical-aspects/</guid>
+      </item>
+    
+      <item>
+        <title>Android 资源汇总</title>
+        <description>&lt;p&gt;整理搜集的书签，主要是一些优秀的blog和android资源网站。&lt;/p&gt;
+
+&lt;h3&gt;团体博客&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://club.alibabatech.org/&quot;&gt;阿里技术沙龙&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://tech.meituan.com/&quot;&gt;美团技术博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://www.ibm.com/developerworks/cn/java/&quot;&gt;IBM developerworks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://www.alloyteam.com/&quot;&gt;腾讯 AlloyTeam&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://blog.csdn.net/mobile/newest.html&quot;&gt;CSDN 移动开发&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://futurice.com/blog/&quot;&gt;Futurice&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://android-developers.blogspot.hk/&quot;&gt;Android Developers Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;个人博客&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://jakewharton.com/blog&quot;&gt;jakewharton&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://frogermcs.github.io/&quot;&gt;froger_mcs dev blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://www.trinea.cn/&quot;&gt;Trinea 源码分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://hukai.me/&quot;&gt;胡凯&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://codethink.me/&quot;&gt;CodeThink 小米Android工程师&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://hannesdorfmann.com/&quot;&gt;Hannes Doorfmann&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;网站资源&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://mirrors.segmentfault.com/adchs/index.html&quot;&gt;Android Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://www.androidbegin.com/&quot;&gt;Android Begin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://5020.tk/&quot;&gt;AndroidDevTools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://androidcustomviews.com/&quot;&gt;AndroidCustomView&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://www.google.com/design/spec/material-design/introduction.html#&quot;&gt;Material design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://www.jcodecraeer.com/&quot;&gt;泡在网上的日子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://www.23code.com/&quot;&gt;Android 经典开源代码分享&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://hukai.me/android-training-course-in-chinese/index.html&quot;&gt;Android官方培训课程中文版&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;https://android-arsenal.com/&quot;&gt;Android developer portal with tools, libraries, and apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.android-gems.com/&quot;&gt;android gems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jobui.com/mianshiti/it/android/&quot;&gt;职友集-Android面试题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.mianwww.com/html/category/it-interview/android&quot;&gt;IT公司面试手册-Android面试笔试题&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 09 Nov 2015 17:40:32 +0800</pubDate>
+        <link>/android-source/</link>
+        <guid isPermaLink="true">/android-source/</guid>
+      </item>
+    
+  </channel>
+</rss>
