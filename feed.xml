@@ -70,6 +70,10 @@
 &lt;h2&gt;Android 性能优化问题&lt;/h2&gt;
 
 &lt;h2&gt;Anroid 安全性问题&lt;/h2&gt;
+
+&lt;p&gt;1.假设你在一个团队中处于一个主程的角色，你要写一个公共的库供同事使用，你实现了一些基础功能并且打了jar包，怎么保护这些jar包代码的安全？&lt;/p&gt;
+
+&lt;h2&gt;Android 界面以及版本适配问题&lt;/h2&gt;
 </description>
         <pubDate>Tue, 10 Nov 2015 00:00:00 +0800</pubDate>
         <link>/android-question/</link>
