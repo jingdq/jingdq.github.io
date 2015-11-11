@@ -127,7 +127,9 @@
 
 &lt;h3&gt;架构&lt;/h3&gt;
 
-&lt;p&gt;1.&lt;a href=&quot;http://hannesdorfmann.com/android/mosby/&quot;&gt;TED MoSBY mvp的实现库  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;1.&lt;a href=&quot;http://hannesdorfmann.com/android/mosby/&quot;&gt;TED MoSBY mvp的实现库  &lt;/a&gt;
+2.&lt;a href=&quot;http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/&quot;&gt;用简洁的办法架构Android程序&lt;/a&gt;
+3.&lt;a href=&quot;http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&quot;&gt;Android架构演化之路&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3&gt;动态加载&lt;/h3&gt;
 
@@ -146,7 +148,7 @@
     
       <item>
         <title>Android 资源汇总</title>
-        <description>&lt;p&gt;整理搜集的书签，主要是一些优秀的blog和android资源网站。排名不分先后，只是按照书签的收藏顺序整理的。不断更新中......&lt;/p&gt;
+        <description>&lt;p&gt;整理搜集的书签，主要是一些优秀的blog和干货网站。排名不分先后，只是按照书签的收藏顺序整理的。不断更新中......&lt;/p&gt;
 
 &lt;h3&gt;团体博客&lt;/h3&gt;
 
@@ -175,6 +177,7 @@
 &lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/guolin_blog&quot;&gt;郭神的博客&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/asce1885&quot;&gt;ASCE1885大牛&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://antonioleiva.com/&quot;&gt;antonioleiva&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://fernandocejas.com&quot;&gt;Fernaado Cejas 一些比较新的技术&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;hr&gt;
@@ -194,6 +197,11 @@
 &lt;li&gt;&lt;a href=&quot;http://www.android-gems.com/&quot;&gt;android gems&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.jobui.com/mianshiti/it/android/&quot;&gt;职友集-Android面试题&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.mianwww.com/html/category/it-interview/android&quot;&gt;IT公司面试手册-Android面试笔试题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.javacodegeeks.com&quot;&gt;Java Code Geeks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://objccn.io&quot;&gt;objc中国&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.jobbole.com&quot;&gt;jobbole伯乐在线&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://toutiao.io/&quot;&gt;开发者头条&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com&quot;&gt;简书&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 17:40:32 +0800</pubDate>
