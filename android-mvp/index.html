@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Android MVP:如何更改好的组织表现层 – My technical gallery – Android Developer Gallery</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="首页声明一下这是篇译文 ，再次声明下 本人的英文水平很烂，翻译不正确的地方欢迎拍砖。 文章来源  
+" />
+    <meta property="og:description" content="首页声明一下这是篇译文 ，再次声明下 本人的英文水平很烂，翻译不正确的地方欢迎拍砖。 文章来源  
+" />
+    
+    <meta name="author" content="My technical gallery" />
+
+    
+    <meta property="og:title" content="Android MVP:如何更改好的组织表现层" />
+    <meta property="twitter:title" content="Android MVP:如何更改好的组织表现层" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="My technical gallery - Android Developer Gallery" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="https://avatars0.githubusercontent.com/u/4002834?v=3&s=460" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">My technical gallery</a></h1>
+            <p class="site-description">Android Developer Gallery</p>
+          </div>
+
+          <nav>
+            <a href="/">Blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Android MVP:如何更改好的组织表现层</h1>
+
+  <div class="entry">
+    <p>首页声明一下这是篇译文 ，再次声明下 本人的英文水平很烂，翻译不正确的地方欢迎拍砖。 文章<a href="http://antonioleiva.com/mvp-android/">来源</a>  </p>
+
+<p>MVP(模型 视图 表现)模式 是众所周知的MVC的衍生物，这段时间在Android应用程序开发中越来越重要，越来越多的人讨论它，但是缺乏可靠性和结构性，这正是我想用这个博客产生的原因，尽可能用更好的方式将我的知识应用到我们的项目开发中。</p>
+
+<h2>什么是MVP?</h2>
+
+<p>MVP将逻辑抽取为表示层。将屏幕上得操作与背后具体的业务分离，换句话说就是将视图与业务分离。理想情况下，MVP模式能够做到相同的业务层与完全不同的视图联系。</p>
+
+<h2>为什么使用MVP?</h2>
+
+<p>在Android中我们面临的问题来自于在Activity中视图与业务的紧密耦合。比如CursorAdapter ，混合了adapters 和 cursors ，adapter属于视图部分，而cursor数据数据访问部分。如何做到易于扩展与维护的应用程序，我们最好做到合适的分层，所以我们要重构视图层。MVP使我们的view更加独立与数据。我们分离应用程序为至少三层，便于分别独立的测试，在mvp模式下，我们从Activity中分离大部分业务逻辑，方便我们使用测试框架针对这些业务逻辑测试。</p>
+
+<h2>在Android中如何实现MVP模式？</h2>
+
+<p>有很多版本mvp模式，每个人都可以根据需求调整它，导致模式的不同主要在于我们表现层代理的职责。比如在view层负责progress bar的显示与隐藏,还是在表示层负责它的显示，谁来控制Action Bar的动作？ 这就是我们要讨论的地方，我将要展示我通常的做法，这篇文章只是指导如何使用mvp模式，然而mvp并没有标准方式。</p>
+
+<h2>表现层</h2>
+
+<p>表现层作为视图层和模型层的中介者，从模型层获取数据，经过处理传送给视图层，有别于MVC,你在视图层的操作决定一切。</p>
+
+<h2>视图层</h2>
+
+<p>视图层通常是一个Activity,或者 一个Fragment、一个View,包含presenter的引用，可以使用Dragger注入到视图层，否则你就负责在视图层创建presenter对象，当一个视图动作比如按钮点击发生的时候，只需要调用presenter中的方法。</p>
+
+<h2>模型层</h2>
+
+<p>在一个良好的分层架构的应用中，模型层是领域层或者业务层的唯一入口，如果我们使用Bob大叔的简洁架构，模型层是用例的交互器，将来再讨论这个话题。现在只需要知道模型层是提供视图层数据的数据源。</p>
+
+<p>一阵啰嗦之后，我创建了一个<a href="https://github.com/antoniolg/androidmvp">mvp的例子</a>，包含了一个登陆页，来用验证录入数据和控制访问home列表页，这个文章不再讲解代码因为项目比较简单，但是如果你理解比较困难我有可能在写一篇文章详细讲解。</p>
+
+<h2>结尾</h2>
+
+<p>在Android中分离逻辑层不容易，但是mvp模式可以使我们的activity不再臃肿，能够更好的组织我们的代码，便于维护和扩展。</p>
+
+  </div>
+
+  <div class="date">
+    Written on November 11, 2015
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:dongqij@gmail.com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/jingdq"><i class="svg-icon github"></i></a>
+
+
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-69908083-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/android-mvp/',
+		  'title': 'Android MVP:如何更改好的组织表现层'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

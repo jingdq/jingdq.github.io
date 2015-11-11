@@ -7,6 +7,47 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Android MVP:如何更改好的组织表现层</title>
+        <description>&lt;p&gt;首页声明一下这是篇译文 ，再次声明下 本人的英文水平很烂，翻译不正确的地方欢迎拍砖。 文章&lt;a href=&quot;http://antonioleiva.com/mvp-android/&quot;&gt;来源&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;MVP(模型 视图 表现)模式 是众所周知的MVC的衍生物，这段时间在Android应用程序开发中越来越重要，越来越多的人讨论它，但是缺乏可靠性和结构性，这正是我想用这个博客产生的原因，尽可能用更好的方式将我的知识应用到我们的项目开发中。&lt;/p&gt;
+
+&lt;h2&gt;什么是MVP?&lt;/h2&gt;
+
+&lt;p&gt;MVP将逻辑抽取为表示层。将屏幕上得操作与背后具体的业务分离，换句话说就是将视图与业务分离。理想情况下，MVP模式能够做到相同的业务层与完全不同的视图联系。&lt;/p&gt;
+
+&lt;h2&gt;为什么使用MVP?&lt;/h2&gt;
+
+&lt;p&gt;在Android中我们面临的问题来自于在Activity中视图与业务的紧密耦合。比如CursorAdapter ，混合了adapters 和 cursors ，adapter属于视图部分，而cursor数据数据访问部分。如何做到易于扩展与维护的应用程序，我们最好做到合适的分层，所以我们要重构视图层。MVP使我们的view更加独立与数据。我们分离应用程序为至少三层，便于分别独立的测试，在mvp模式下，我们从Activity中分离大部分业务逻辑，方便我们使用测试框架针对这些业务逻辑测试。&lt;/p&gt;
+
+&lt;h2&gt;在Android中如何实现MVP模式？&lt;/h2&gt;
+
+&lt;p&gt;有很多版本mvp模式，每个人都可以根据需求调整它，导致模式的不同主要在于我们表现层代理的职责。比如在view层负责progress bar的显示与隐藏,还是在表示层负责它的显示，谁来控制Action Bar的动作？ 这就是我们要讨论的地方，我将要展示我通常的做法，这篇文章只是指导如何使用mvp模式，然而mvp并没有标准方式。&lt;/p&gt;
+
+&lt;h2&gt;表现层&lt;/h2&gt;
+
+&lt;p&gt;表现层作为视图层和模型层的中介者，从模型层获取数据，经过处理传送给视图层，有别于MVC,你在视图层的操作决定一切。&lt;/p&gt;
+
+&lt;h2&gt;视图层&lt;/h2&gt;
+
+&lt;p&gt;视图层通常是一个Activity,或者 一个Fragment、一个View,包含presenter的引用，可以使用Dragger注入到视图层，否则你就负责在视图层创建presenter对象，当一个视图动作比如按钮点击发生的时候，只需要调用presenter中的方法。&lt;/p&gt;
+
+&lt;h2&gt;模型层&lt;/h2&gt;
+
+&lt;p&gt;在一个良好的分层架构的应用中，模型层是领域层或者业务层的唯一入口，如果我们使用Bob大叔的简洁架构，模型层是用例的交互器，将来再讨论这个话题。现在只需要知道模型层是提供视图层数据的数据源。&lt;/p&gt;
+
+&lt;p&gt;一阵啰嗦之后，我创建了一个&lt;a href=&quot;https://github.com/antoniolg/androidmvp&quot;&gt;mvp的例子&lt;/a&gt;，包含了一个登陆页，来用验证录入数据和控制访问home列表页，这个文章不再讲解代码因为项目比较简单，但是如果你理解比较困难我有可能在写一篇文章详细讲解。&lt;/p&gt;
+
+&lt;h2&gt;结尾&lt;/h2&gt;
+
+&lt;p&gt;在Android中分离逻辑层不容易，但是mvp模式可以使我们的activity不再臃肿，能够更好的组织我们的代码，便于维护和扩展。&lt;/p&gt;
+</description>
+        <pubDate>Wed, 11 Nov 2015 00:00:00 +0800</pubDate>
+        <link>/android-mvp/</link>
+        <guid isPermaLink="true">/android-mvp/</guid>
+      </item>
+    
+      <item>
         <title>Android 问题探索</title>
         <description>&lt;p&gt;Android开发常见问题，不断更新中......&lt;/p&gt;
 
@@ -91,6 +132,8 @@
 &lt;h3&gt;动态加载&lt;/h3&gt;
 
 &lt;h3&gt;自定义view&lt;/h3&gt;
+
+&lt;h3&gt;编译工具&lt;/h3&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 17:40:32 +0800</pubDate>
         <link>/android-technical-aspects/</link>
@@ -127,6 +170,7 @@
 &lt;li&gt; &lt;a href=&quot;http://blog.csdn.net/singwhatiwanna&quot;&gt;任玉刚 android开发艺术探索&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/guolin_blog&quot;&gt;郭神的博客&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/asce1885&quot;&gt;ASCE1885大牛&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://antonioleiva.com/&quot;&gt;antonioleiva&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;hr&gt;
