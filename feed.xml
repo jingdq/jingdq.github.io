@@ -3,8 +3,8 @@
   <channel>
     <title>My technical gallery</title>
     <description>Android Developer Gallery</description>
-    <link></link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://jingdq.github.io</link>
+    <atom:link href="http://jingdq.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>Android MVP:如何更好的组织表现层</title>
@@ -43,8 +43,44 @@
 &lt;p&gt;在Android中分离逻辑层不容易，但是mvp模式可以使我们的activity不再臃肿，能够更好的组织我们的代码，便于维护和扩展。&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 Nov 2015 00:00:00 +0800</pubDate>
-        <link>/android-mvp/</link>
-        <guid isPermaLink="true">/android-mvp/</guid>
+        <link>http://jingdq.github.io/android-mvp/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/android-mvp/</guid>
+      </item>
+    
+      <item>
+        <title>Android 自定义布局</title>
+        <description>&lt;p&gt;首先声明一下这是篇译文 ，再次声明下本人的英文水平&lt;strong&gt;&lt;em&gt;很烂&lt;/em&gt;&lt;/strong&gt;，翻译不正确的地方欢迎拍砖。 文章&lt;a href=&quot;http://lucasr.org/2014/05/12/custom-layouts-on-android/&quot;&gt;来源&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/android_post/custom_layout/layouts-post.png&quot; alt=&quot;customlayout&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;如果你之前建立过android应用程序，你只是使用平台一些内置的可用布局比如 RelativeLayout、LinearLayout、FrameLayout等，对于android界面而言，这些是我们构建程序的面包和黄油。
+通过组合内置的布局，可以实现复杂的用户界面，但是，仍然会在某些情况下需要我们实现自定义布局。有两种原因自定义布局，第一，使UI控件更加高效,减少view的数量或者更快的遍历布局。第二，使用内置的控件不能自然地实现界面需求。在这片文章中，我将演示四种方式实现自定义布局，讨论它们各自的优点和缺点：composite view，custom composite view, flat custom view, and async custom views。
+这是代码示例&lt;a href=&quot;https://github.com/lucasr/android-layout-samples&quot;&gt;android-layout-samples&lt;/a&gt;,这个例子采用了不同的技术实现了相同的UI, 这个例子使用Picasso来加载图片。UI是twitter app的简单版本，没有交互，只是简单的布局。&lt;/p&gt;
+
+&lt;p&gt;ok,让我们开始最通用的自定义方式：composite view。&lt;/p&gt;
+
+&lt;h2&gt;Composite View&lt;/h2&gt;
+
+&lt;p&gt;通过结合多个view组成一个可复用的UI组件，这是最简单的方式，当然也非常容易实现：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;集成内置的布局类。&lt;/li&gt;
+&lt;li&gt;在构造方法加载一个merge layout。&lt;/li&gt;
+&lt;li&gt;通过findViewById()初始化内部的成员view。&lt;/li&gt;
+&lt;li&gt;添加查询和更改view状态的方法。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;TweetCompositeViewcode 就是这么一个组合的view,它继承自RelativeLayout,加载tweet&lt;em&gt;composite&lt;/em&gt;layout.xml，提供了update()方法用于刷新view的状态。so,简单地干活。&lt;/p&gt;
+
+&lt;h2&gt;Custom Composite View&lt;/h2&gt;
+
+&lt;p&gt;大多数的情况下 TweetCompositeView 执行的相当好，但是，为了方便讨论，假设你想要减少子view的数量和使布局的遍历更加高效。虽然composite views容易实现,但是使用这些通用的布局有不少的性能开销，特别像LinearLayout 和 RelativeLayout实现复杂布局的情况下。在一次遍历的过程中肯能会测量子view多次。LinearLayout的layout_wight就是常见的例子。&lt;/p&gt;
+
+&lt;p&gt;很高兴，发现这片文章已经有人翻译过了，而且翻译的挺好的，&lt;a href=&quot;http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0112/2300.html&quot;&gt;看这里&lt;/a&gt; 。&lt;/p&gt;
+</description>
+        <pubDate>Wed, 11 Nov 2015 00:00:00 +0800</pubDate>
+        <link>http://jingdq.github.io/android-customlayout/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/android-customlayout/</guid>
       </item>
     
       <item>
@@ -117,8 +153,8 @@
 &lt;h2&gt;Android 界面以及版本适配问题&lt;/h2&gt;
 </description>
         <pubDate>Tue, 10 Nov 2015 00:00:00 +0800</pubDate>
-        <link>/android-question/</link>
-        <guid isPermaLink="true">/android-question/</guid>
+        <link>http://jingdq.github.io/android-question/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/android-question/</guid>
       </item>
     
       <item>
@@ -127,9 +163,11 @@
 
 &lt;h3&gt;架构&lt;/h3&gt;
 
-&lt;p&gt;1.&lt;a href=&quot;http://hannesdorfmann.com/android/mosby/&quot;&gt;TED MoSBY mvp的实现库  &lt;/a&gt;
-2.&lt;a href=&quot;http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/&quot;&gt;用简洁的办法架构Android程序&lt;/a&gt;
-3.&lt;a href=&quot;http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&quot;&gt;Android架构演化之路&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;1.&lt;a href=&quot;http://hannesdorfmann.com/android/mosby/&quot;&gt;TED MoSBY mvp的实现库  &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2.&lt;a href=&quot;http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/&quot;&gt;用简洁的办法架构Android程序&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;3.&lt;a href=&quot;http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&quot;&gt;Android架构演化之路&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3&gt;动态加载&lt;/h3&gt;
 
@@ -142,8 +180,8 @@
 &lt;h3&gt;编译工具&lt;/h3&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 17:40:32 +0800</pubDate>
-        <link>/android-technical-aspects/</link>
-        <guid isPermaLink="true">/android-technical-aspects/</guid>
+        <link>http://jingdq.github.io/android-technical-aspects/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/android-technical-aspects/</guid>
       </item>
     
       <item>
@@ -180,7 +218,7 @@
 &lt;li&gt;&lt;a href=&quot;http://fernandocejas.com&quot;&gt;Fernaado Cejas 一些比较新的技术&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;hr&gt;
+&lt;h2&gt;14. &lt;a href=&quot;http://lucasr.org/&quot;&gt;Lucas Fackbook android工程师&lt;/a&gt;&lt;/h2&gt;
 
 &lt;h2&gt;网站资源&lt;/h2&gt;
 
@@ -205,8 +243,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 17:40:32 +0800</pubDate>
-        <link>/android-source/</link>
-        <guid isPermaLink="true">/android-source/</guid>
+        <link>http://jingdq.github.io/android-source/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/android-source/</guid>
       </item>
     
   </channel>

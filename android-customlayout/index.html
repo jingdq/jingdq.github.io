@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Android 自定义布局 – My technical gallery – Android Developer Gallery</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="首先声明一下这是篇译文 ，再次声明下本人的英文水平很烂，翻译不正确的地方欢迎拍砖。 文章来源  
+" />
+    <meta property="og:description" content="首先声明一下这是篇译文 ，再次声明下本人的英文水平很烂，翻译不正确的地方欢迎拍砖。 文章来源  
+" />
+    
+    <meta name="author" content="My technical gallery" />
+
+    
+    <meta property="og:title" content="Android 自定义布局" />
+    <meta property="twitter:title" content="Android 自定义布局" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="My technical gallery - Android Developer Gallery" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="https://avatars0.githubusercontent.com/u/4002834?v=3&s=460" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">My technical gallery</a></h1>
+            <p class="site-description">Android Developer Gallery</p>
+          </div>
+
+          <nav>
+            <a href="/">Blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Android 自定义布局</h1>
+
+  <div class="entry">
+    <p>首先声明一下这是篇译文 ，再次声明下本人的英文水平<strong><em>很烂</em></strong>，翻译不正确的地方欢迎拍砖。 文章<a href="http://lucasr.org/2014/05/12/custom-layouts-on-android/">来源</a>  </p>
+
+<p><img src="/images/android_post/custom_layout/layouts-post.png" alt="customlayout"></p>
+
+<p>如果你之前建立过android应用程序，你只是使用平台一些内置的可用布局比如 RelativeLayout、LinearLayout、FrameLayout等，对于android界面而言，这些是我们构建程序的面包和黄油。
+通过组合内置的布局，可以实现复杂的用户界面，但是，仍然会在某些情况下需要我们实现自定义布局。有两种原因自定义布局，第一，使UI控件更加高效,减少view的数量或者更快的遍历布局。第二，使用内置的控件不能自然地实现界面需求。在这片文章中，我将演示四种方式实现自定义布局，讨论它们各自的优点和缺点：composite view，custom composite view, flat custom view, and async custom views。
+这是代码示例<a href="https://github.com/lucasr/android-layout-samples">android-layout-samples</a>,这个例子采用了不同的技术实现了相同的UI, 这个例子使用Picasso来加载图片。UI是twitter app的简单版本，没有交互，只是简单的布局。</p>
+
+<p>ok,让我们开始最通用的自定义方式：composite view。</p>
+
+<h2>Composite View</h2>
+
+<p>通过结合多个view组成一个可复用的UI组件，这是最简单的方式，当然也非常容易实现：</p>
+
+<ol>
+<li>集成内置的布局类。</li>
+<li>在构造方法加载一个merge layout。</li>
+<li>通过findViewById()初始化内部的成员view。</li>
+<li>添加查询和更改view状态的方法。</li>
+</ol>
+
+<p>TweetCompositeViewcode 就是这么一个组合的view,它继承自RelativeLayout,加载tweet<em>composite</em>layout.xml，提供了update()方法用于刷新view的状态。so,简单地干活。</p>
+
+<h2>Custom Composite View</h2>
+
+<p>大多数的情况下 TweetCompositeView 执行的相当好，但是，为了方便讨论，假设你想要减少子view的数量和使布局的遍历更加高效。虽然composite views容易实现,但是使用这些通用的布局有不少的性能开销，特别像LinearLayout 和 RelativeLayout实现复杂布局的情况下。在一次遍历的过程中肯能会测量子view多次。LinearLayout的layout_wight就是常见的例子。</p>
+
+<p>很高兴，发现这片文章已经有人翻译过了，而且翻译的挺好的，<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0112/2300.html">看这里</a> 。</p>
+
+  </div>
+
+  <div class="date">
+    Written on November 11, 2015
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:dongqij@gmail.com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/jingdq"><i class="svg-icon github"></i></a>
+
+
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-69908083-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/android-customlayout/',
+		  'title': 'Android 自定义布局'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>
