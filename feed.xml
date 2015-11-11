@@ -8,13 +8,13 @@
     
       <item>
         <title>Android MVP:如何更好的组织表现层</title>
-        <description>&lt;p&gt;首页声明一下这是篇译文 ，再次声明下 本人的英文水平很烂，翻译不正确的地方欢迎拍砖。 文章&lt;a href=&quot;http://antonioleiva.com/mvp-android/&quot;&gt;来源&lt;/a&gt;  &lt;/p&gt;
+        <description>&lt;p&gt;首先声明一下这是篇译文 ，再次声明下本人的英文水平&lt;strong&gt;&lt;em&gt;很烂&lt;/em&gt;&lt;/strong&gt;，翻译不正确的地方欢迎拍砖。 文章&lt;a href=&quot;http://antonioleiva.com/mvp-android/&quot;&gt;来源&lt;/a&gt;  &lt;/p&gt;
 
 &lt;p&gt;MVP(模型 视图 表现)模式 是众所周知的MVC的衍生物，这段时间在Android应用程序开发中越来越重要，越来越多的人讨论它，但是缺乏可靠性和结构性，这正是这个博客产生的原因，尽可能用更好的方式将我的知识应用到我们的项目开发中。&lt;/p&gt;
 
 &lt;h2&gt;什么是MVP?&lt;/h2&gt;
 
-&lt;p&gt;MVP将逻辑抽取为表示层。将屏幕上得操作与背后具体的业务分离，换句话说就是将视图与业务分离。理想情况下，MVP模式能够做到相同的业务层与完全不同的视图联系。&lt;/p&gt;
+&lt;p&gt;MVP将逻辑抽取为表示层。将屏幕上的操作与背后具体的业务分离，换句话说就是将视图与业务分离。理想情况下，MVP模式能够做到相同的业务层与完全不同的视图联系。&lt;/p&gt;
 
 &lt;h2&gt;为什么使用MVP?&lt;/h2&gt;
 
@@ -130,6 +130,10 @@
 &lt;p&gt;1.&lt;a href=&quot;http://hannesdorfmann.com/android/mosby/&quot;&gt;TED MoSBY mvp的实现库  &lt;/a&gt;&lt;/p&gt;
 
 &lt;h3&gt;动态加载&lt;/h3&gt;
+
+&lt;p&gt;1.&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzI1MTA1MzM2Nw==&amp;amp;mid=400118620&amp;amp;idx=1&amp;amp;sn=b4fdd5055731290eef12ad0d17f39d4a&amp;amp;scene=25#wechat_redirect&quot;&gt;安卓App热补丁动态修复技术介绍&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2.&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzAwMTcwNTE0NA==&amp;amp;mid=400326703&amp;amp;idx=1&amp;amp;sn=23f689e24a2a37853fbe601ce9ef800b&amp;amp;scene=0#wechat_redirect&quot;&gt;再议携程Android动态加载框架DynamicAPK&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3&gt;自定义view&lt;/h3&gt;
 
