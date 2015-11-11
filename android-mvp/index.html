@@ -65,7 +65,7 @@
 
 <h2>为什么使用MVP?</h2>
 
-<p>在Android中我们面临的问题来自于在Activity中视图与业务的紧密耦合。比如CursorAdapter ，混合了adapters 和 cursors ，adapter属于视图部分，而cursor数据数据访问部分。如何做到易于扩展与维护的应用程序，我们最好做到合适的分层，所以我们要重构视图层。MVP使我们的view更加独立与数据。我们分离应用程序为至少三层，便于分别独立的测试，在mvp模式下，我们从Activity中分离大部分业务逻辑，方便我们使用测试框架针对这些业务逻辑测试。</p>
+<p>在Android中我们面临的问题来自于在Activity中视图与业务的紧密耦合。比如CursorAdapter ，混合了adapters 和 cursors ，adapter属于视图部分，而cursor属于数据访问部分。如何做到易于扩展与维护的应用程序，我们最好做到合适的分层，所以我们要重构视图层。MVP使我们的view更加独立与数据。我们分离应用程序为至少三层，便于分别独立的测试，在mvp模式下，我们从Activity中分离大部分业务逻辑，方便我们使用测试框架针对这些业务逻辑测试。</p>
 
 <h2>在Android中如何实现MVP模式？</h2>
 
