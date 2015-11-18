@@ -130,42 +130,42 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;然后再具体的界面对应得Activity中使用
         public class RegisterActivity extends BaseActivity {&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    Button btn_regist_captcha;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;            Button btn_regist_captcha;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        setTitle(&amp;quot;注册&amp;quot;);
-
-
-
-
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        btn_regist_ok.post(new Runnable() {
-        @Override
-        public void run() {
-            showGuideView(btn_regist_ok);
-
-
-        }
-    });
-
-
-    }
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_register);
+                setTitle(&amp;quot;注册&amp;quot;);
 
 
 
 
+            }
 
 
-    }
+            @Override
+            protected void onResume() {
+                super.onResume();
+                btn_regist_ok.post(new Runnable() {
+                @Override
+                public void run() {
+                    showGuideView(btn_regist_ok);
+
+
+                }
+            });
+
+
+            }
+
+
+
+
+
+
+            }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;注意&lt;/em&gt;&lt;/strong&gt; OnPause方法中要移除当前界面的guideview,否在这个view会始终在窗口中存在。  最后别忘了在Manifest文件中配置添加窗口的权限&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&amp;lt;uses-permission android:name=&amp;quot;android.permission.SYSTEM_ALERT_WINDOW&amp;quot; /&amp;gt;
