@@ -134,7 +134,7 @@
 
 &lt;h2&gt;结语&lt;/h2&gt;
 
-&lt;p&gt;功能简单并不代表实现起来就很轻松，上面仅仅是大致实现了功能，还有一些东西没有考虑到，比如：当前界面存在Dialog弹框的时候这个引导的功能是不是正常，还有高版本API Level 23 下面会不会出现问题等等，由于时间急迫就先写到这里，后续系列文章会完善这些问题。欢迎大家拍砖,send to &lt;a href=&quot;mailto:dongqij@gmail.com&quot;&gt;dongqij@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;功能简单并不代表实现起来就很轻松，上面仅仅是大致实现了功能，还有一些东西没有考虑到，比如：当前界面存在Dialog弹框的时候这个引导的功能是不是正常，还有高版本API Level 23 下面会不会出现问题等等，后续系列文章会完善这些问题。欢迎大家拍砖,send to &lt;a href=&quot;mailto:dongqij@gmail.com&quot;&gt;dongqij@gmail.com&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 18 Nov 2015 00:00:00 +0800</pubDate>
         <link>http://jingdq.github.io/android-window-guideview/</link>
