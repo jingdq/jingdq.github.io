@@ -178,7 +178,7 @@
 <p>然后再具体的界面对应得Activity中使用</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">    public class RegisterActivity extends BaseActivity {
 
-                Button btn_regist_captcha;
+                Button btn_regist_ok;
 
                 @Override
                 protected void onCreate(Bundle savedInstanceState) {
@@ -186,6 +186,7 @@
                     super.onCreate(savedInstanceState);
                     setContentView(R.layout.activity_register);
                     setTitle(&quot;注册&quot;);
+                    btn_regist_ok = (Button) findViewById(R.id.btn_regist_ok);
 
 
 
