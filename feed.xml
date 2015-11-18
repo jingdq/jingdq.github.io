@@ -7,6 +7,141 @@
     <atom:link href="http://jingdq.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Android 窗口开发系类:实现一个简单的引导view</title>
+        <description>&lt;p&gt;最近事情比较多，没精力抽时间写点东西了，不得不承认自己是个低产的coder,好了，废话不多说，今天跟大家实现一个小的功能，主要用来引导用户进行界面操作的目的。先来看看咱们要做的东西吧。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/guideview.gif&quot; alt=&quot;GuideView&quot; title=&quot;GuideView&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;看到效果大家觉得这个东西so easy ! 应该就是在当前视图做一个浮层，然后将其添加一个动画就OK了。的确是这样的，但是我们要在每个界面都添加这个引导操作的功能，如果因为这个功能对每个界面的布局做改动那工作量就大大的上升了，这个时候我们该怎么办呢？ 片刻思考之后，我们应该想到把这个东西封装成一个控件之类的东东，然后在BaseActivity里面去调用。顺着这个思路，我们新建一个GuideView的类，这个类里面主要封装了针对窗口的一些操作，然后结合属性动画来实现上面效果。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    public class GuideView {
+
+        private Context mContext;
+        private View forGuideView;
+        private FrameLayout mParentView;
+        private ImageView pressView;
+        private WindowManager wm;
+        private WindowManager.LayoutParams mParams;
+        private FrameLayout.LayoutParams fl;
+
+        static final int FLIP_DISTANCE = 300;
+
+        public GuideView(Context context, View view) {
+
+            this.mContext = context;
+            this.forGuideView = view;
+            initWindowParam(context);
+            initView();
+
+        }
+
+
+        public void showView() {
+            wm.addView(mParentView, mParams);
+            ObjectAnimator oa = ObjectAnimator.ofFloat(mParentView, &amp;quot;translationY&amp;quot;, 0, -FLIP_DISTANCE);
+            oa.setDuration(2000);
+            oa.setRepeatCount(ValueAnimator.INFINITE);
+            oa.setRepeatMode(ValueAnimator.REVERSE);
+            oa.start();
+
+
+        }
+
+        private void initView() {
+
+            int x = (int) forGuideView.getX();
+            int y = (int) forGuideView.getY();
+            int viewWidth = forGuideView.getWidth();
+            int viewHeight = forGuideView.getHeight();
+            mParentView = new FrameLayout(mContext);
+
+            mParentView.setBackgroundColor(mContext.getResources().getColor(R.color.transparent));
+            pressView = new ImageView(mContext);
+            pressView.setBackgroundResource(R.drawable.press);
+
+            fl = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+
+            int marginLeft = (x + (int) (viewWidth / 2.0)) - (int) (pressView.getWidth() / 2.0);
+            int marginTop = (y + (int) (viewHeight / 2.0) + FLIP_DISTANCE);
+
+            fl.setMargins(marginLeft, marginTop, 0, 0);
+
+
+            mParentView.addView(pressView, fl);
+
+
+        }
+
+        private void initWindowParam(Context context) {
+
+            wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+            mParams = new WindowManager.LayoutParams();
+            mParams.format = PixelFormat.TRANSLUCENT;
+            mParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;// 焦点
+            mParams.width = WindowManager.LayoutParams.FILL_PARENT;//窗口的宽和高
+            mParams.height = WindowManager.LayoutParams.FILL_PARENT;
+            mParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+            mParams.format = 1;
+            mParams.gravity = Gravity.TOP;
+
+        }
+
+        public void removeView() {
+            pressView.clearAnimation();
+            wm.removeViewImmediate(mParentView);
+
+
+        }
+
+
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个类提供了两个方法showGuideView和removeView，相信大家根据字面含义就知道用途了。紧接着就是在我们的Activity几类里面使用：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    public class BaseActivity extends AppCompatActivity {
+
+        GuideView guideView;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_base);
+        }
+
+
+
+        protected void showGuideView(View view) {
+
+            guideView = new GuideView(this, view);
+            guideView.showView();
+         }
+
+          @Override
+        protected void onPause() {
+            super.onPause();
+
+            if (guideView != null) {
+                guideView.removeView();
+
+            }
+
+
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;注意&lt;/em&gt;&lt;/strong&gt; OnPause方法中要移除当前界面的guideview,否在这个view会始终在窗口中存在。  最后别忘了在Manifest文件中配置添加窗口的权限&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&amp;lt;uses-permission android:name=&amp;quot;android.permission.SYSTEM_ALERT_WINDOW&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;经过上述操作基本上实现我们的需求了，是不是很easy?&lt;/p&gt;
+
+&lt;h2&gt;结语&lt;/h2&gt;
+
+&lt;p&gt;功能简单并不代表实现起来就很轻松，上面仅仅是大致实现了功能，还有一些东西没有考虑到，比如：当前界面存在Dialog弹框的时候这个引导的功能是不是正常，还有高版本API Level 23 下面会不会出现问题等等，由于时间急迫就先写到这里，后续系列文章会完善这些问题。欢迎大家拍砖,send to &lt;a href=&quot;mailto:dongqij@gmail.com&quot;&gt;dongqij@gmail.com&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 18 Nov 2015 00:00:00 +0800</pubDate>
+        <link>http://jingdq.github.io/android-window-guideview/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/android-window-guideview/</guid>
+      </item>
+    
+      <item>
         <title>Android MVP:如何更好的组织表现层</title>
         <description>&lt;p&gt;首先声明一下这是篇译文 ，再次声明下本人的英文水平&lt;strong&gt;&lt;em&gt;很烂&lt;/em&gt;&lt;/strong&gt;，翻译不正确的地方欢迎拍砖。 文章&lt;a href=&quot;http://antonioleiva.com/mvp-android/&quot;&gt;来源&lt;/a&gt;  &lt;/p&gt;
 
@@ -217,6 +352,7 @@
 &lt;li&gt;&lt;a href=&quot;http://antonioleiva.com/&quot;&gt;antonioleiva&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://fernandocejas.com&quot;&gt;Fernaado Cejas 一些比较新的技术&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://lucasr.org/&quot;&gt;Lucas Fackbook android工程师&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.kymjs.com/&quot;&gt;张涛 无论何时，请保持学者的谦逊与宽容&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;hr&gt;
