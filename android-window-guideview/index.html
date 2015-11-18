@@ -142,7 +142,7 @@
 
     }
 </code></pre></div>
-<p>这个类提供了两个方法showGuideView和removeView，相信大家根据字面含义就知道用途了。紧接着就是在我们的Activity几类里面使用：</p>
+<p>这个类提供了两个方法showGuideView和removeView，相信大家根据字面含义就知道用途了。紧接着就是在我们的BaseActivity基类里面提供使用的方法：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">    public class BaseActivity extends AppCompatActivity {
 
         GuideView guideView;
@@ -167,11 +167,51 @@
 
             if (guideView != null) {
                 guideView.removeView();
+                guideView = null;
 
             }
 
 
         }
+    }
+</code></pre></div>
+<p>然后再具体的界面对应得Activity中使用
+        public class RegisterActivity extends BaseActivity {</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    Button btn_regist_captcha;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+        setTitle(&quot;注册&quot;);
+
+
+
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        btn_regist_ok.post(new Runnable() {
+        @Override
+        public void run() {
+            showGuideView(btn_regist_ok);
+
+
+        }
+    });
+
+
+    }
+
+
+
+
+
+
     }
 </code></pre></div>
 <p><strong><em>注意</em></strong> OnPause方法中要移除当前界面的guideview,否在这个view会始终在窗口中存在。  最后别忘了在Manifest文件中配置添加窗口的权限</p>

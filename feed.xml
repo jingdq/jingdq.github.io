@@ -95,7 +95,7 @@
 
     }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这个类提供了两个方法showGuideView和removeView，相信大家根据字面含义就知道用途了。紧接着就是在我们的Activity几类里面使用：&lt;/p&gt;
+&lt;p&gt;这个类提供了两个方法showGuideView和removeView，相信大家根据字面含义就知道用途了。紧接着就是在我们的BaseActivity基类里面提供使用的方法：&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    public class BaseActivity extends AppCompatActivity {
 
         GuideView guideView;
@@ -120,11 +120,51 @@
 
             if (guideView != null) {
                 guideView.removeView();
+                guideView = null;
 
             }
 
 
         }
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;然后再具体的界面对应得Activity中使用
+        public class RegisterActivity extends BaseActivity {&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    Button btn_regist_captcha;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+        setTitle(&amp;quot;注册&amp;quot;);
+
+
+
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        btn_regist_ok.post(new Runnable() {
+        @Override
+        public void run() {
+            showGuideView(btn_regist_ok);
+
+
+        }
+    });
+
+
+    }
+
+
+
+
+
+
     }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;注意&lt;/em&gt;&lt;/strong&gt; OnPause方法中要移除当前界面的guideview,否在这个view会始终在窗口中存在。  最后别忘了在Manifest文件中配置添加窗口的权限&lt;/p&gt;
@@ -309,6 +349,8 @@
 &lt;p&gt;1.&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzI1MTA1MzM2Nw==&amp;amp;mid=400118620&amp;amp;idx=1&amp;amp;sn=b4fdd5055731290eef12ad0d17f39d4a&amp;amp;scene=25#wechat_redirect&quot;&gt;安卓App热补丁动态修复技术介绍&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;2.&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzAwMTcwNTE0NA==&amp;amp;mid=400326703&amp;amp;idx=1&amp;amp;sn=23f689e24a2a37853fbe601ce9ef800b&amp;amp;scene=0#wechat_redirect&quot;&gt;再议携程Android动态加载框架DynamicAPK&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;3.&lt;a href=&quot;http://blog.csdn.net/lmj623565791/article/details/49883661&quot;&gt;Android热补丁动态修复框架小结&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3&gt;自定义view&lt;/h3&gt;
 
