@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://jingdq.github.io/android-window-guideview/</loc>
+    <loc>http://jingdq.github.io/Android_Window_GuideView/</loc>
     <lastmod>2015-11-18T00:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>http://jingdq.github.io/android-mvp/</loc>
+    <loc>http://jingdq.github.io/Android_MVP/</loc>
     <lastmod>2015-11-11T00:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>http://jingdq.github.io/android-customlayout/</loc>
+    <loc>http://jingdq.github.io/Android_CustomLayout/</loc>
     <lastmod>2015-11-11T00:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>http://jingdq.github.io/android-question/</loc>
+    <loc>http://jingdq.github.io/Android_Question/</loc>
     <lastmod>2015-11-10T00:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>http://jingdq.github.io/android-technical-aspects/</loc>
+    <loc>http://jingdq.github.io/Android_Technical_-Aspects/</loc>
     <lastmod>2015-11-09T17:40:32+08:00</lastmod>
   </url>
   <url>
-    <loc>http://jingdq.github.io/android-source/</loc>
+    <loc>http://jingdq.github.io/Android_Source/</loc>
     <lastmod>2015-11-09T17:40:32+08:00</lastmod>
   </url>
   <url>
@@ -33,4 +33,22 @@
   <url>
     <loc>http://jingdq.github.io/</loc>
   </url>
+    <url>
+      <loc>http://jingdq.github.io/Android_Source/</loc>
+    </url>
+    <url>
+      <loc>http://jingdq.github.io/Android_Technical_-Aspects/</loc>
+    </url>
+    <url>
+      <loc>http://jingdq.github.io/Android_Question/</loc>
+    </url>
+    <url>
+      <loc>http://jingdq.github.io/Android_CustomLayout/</loc>
+    </url>
+    <url>
+      <loc>http://jingdq.github.io/Android_MVP/</loc>
+    </url>
+    <url>
+      <loc>http://jingdq.github.io/Android_Window_GuideView/</loc>
+    </url>
 </urlset>

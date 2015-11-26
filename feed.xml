@@ -175,8 +175,8 @@
 &lt;p&gt;功能简单并不代表实现起来就很轻松，上面仅仅是大致实现了功能，还有一些东西没有考虑到，比如：当前界面存在Dialog弹框的时候这个引导的功能是不是正常，还有高版本API Level 23 下面会不会出现问题等等，后续系列文章会完善这些问题。欢迎大家拍砖,send to &lt;a href=&quot;mailto:dongqij@gmail.com&quot;&gt;dongqij@gmail.com&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 18 Nov 2015 00:00:00 +0800</pubDate>
-        <link>http://jingdq.github.io/android-window-guideview/</link>
-        <guid isPermaLink="true">http://jingdq.github.io/android-window-guideview/</guid>
+        <link>http://jingdq.github.io/Android_Window_GuideView/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/Android_Window_GuideView/</guid>
       </item>
     
       <item>
@@ -216,8 +216,8 @@
 &lt;p&gt;在Android中分离逻辑层不容易，但是mvp模式可以使我们的activity不再臃肿，能够更好的组织我们的代码，便于维护和扩展。&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 Nov 2015 00:00:00 +0800</pubDate>
-        <link>http://jingdq.github.io/android-mvp/</link>
-        <guid isPermaLink="true">http://jingdq.github.io/android-mvp/</guid>
+        <link>http://jingdq.github.io/Android_MVP/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/Android_MVP/</guid>
       </item>
     
       <item>
@@ -252,8 +252,8 @@
 &lt;p&gt;很高兴，发现这篇文章已经有人翻译过了，而且翻译的挺好的，&lt;a href=&quot;http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0112/2300.html&quot;&gt;看这里&lt;/a&gt; 。&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 Nov 2015 00:00:00 +0800</pubDate>
-        <link>http://jingdq.github.io/android-customlayout/</link>
-        <guid isPermaLink="true">http://jingdq.github.io/android-customlayout/</guid>
+        <link>http://jingdq.github.io/Android_CustomLayout/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/Android_CustomLayout/</guid>
       </item>
     
       <item>
@@ -324,25 +324,34 @@
 &lt;p&gt;1.假设你在一个团队中处于一个主程的角色，你要写一个公共的库供同事使用，你实现了一些基础功能并且打了jar包，怎么保护这些jar包代码的安全？&lt;/p&gt;
 
 &lt;h2&gt;Android 界面以及版本适配问题&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在Activity声明周期方法中的OnResume能够获取View控件的位置坐标信息么？当一个Activity完全加载完毕后 会执行 onWindowFocusChanged方法，在这里能够获取View控件的位置坐标信息么？&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         <pubDate>Tue, 10 Nov 2015 00:00:00 +0800</pubDate>
-        <link>http://jingdq.github.io/android-question/</link>
-        <guid isPermaLink="true">http://jingdq.github.io/android-question/</guid>
+        <link>http://jingdq.github.io/Android_Question/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/Android_Question/</guid>
       </item>
     
       <item>
         <title>Android Technical Aspects</title>
-        <description>&lt;p&gt;Android各个方面的技术汇总，不断完善中......&lt;/p&gt;
+        <description>&lt;p&gt;技术汇总，不断完善中......&lt;/p&gt;
+
+&lt;h2&gt;Android方面的&lt;/h2&gt;
 
 &lt;h3&gt;架构&lt;/h3&gt;
 
-&lt;p&gt;1.&lt;a href=&quot;http://hannesdorfmann.com/android/mosby/&quot;&gt;TED MoSBY mvp的实现库  &lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://hannesdorfmann.com/android/mosby/&quot;&gt;TED MoSBY mvp的实现库  &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/&quot;&gt;用简洁的办法架构Android程序&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&quot;&gt;Android架构演化之路&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://medium.com/@cainwong/android-mvp-an-alternate-approach-1a2b02108f7a#.neqnts62u&quot;&gt;一种在Android中实现mvp模式的新思路 &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;2.&lt;a href=&quot;http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/&quot;&gt;用简洁的办法架构Android程序&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
 
-&lt;p&gt;3.&lt;a href=&quot;http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&quot;&gt;Android架构演化之路&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3&gt;动态加载&lt;/h3&gt;
+&lt;h3&gt;动态加载&amp;amp;&amp;amp;HotFix&lt;/h3&gt;
 
 &lt;p&gt;1.&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzI1MTA1MzM2Nw==&amp;amp;mid=400118620&amp;amp;idx=1&amp;amp;sn=b4fdd5055731290eef12ad0d17f39d4a&amp;amp;scene=25#wechat_redirect&quot;&gt;安卓App热补丁动态修复技术介绍&lt;/a&gt;&lt;/p&gt;
 
@@ -350,13 +359,143 @@
 
 &lt;p&gt;3.&lt;a href=&quot;http://blog.csdn.net/lmj623565791/article/details/49883661&quot;&gt;Android热补丁动态修复框架小结&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3&gt;自定义view&lt;/h3&gt;
+&lt;p&gt;4.&lt;a href=&quot;http://lirenlong.github.io/hotfix/#rd?sukey=fc78a68049a14bb2b122280ebdec7b39605209290860f5335634251c8fde8b4b7748618df85e7db8417f92b1536d83fe&quot;&gt;Android App 线上热修复方案 天猫技术&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;5.&lt;a href=&quot;http://blog.zhaiyifan.cn/2015/11/20/HotPatchCompare/?hmsr=toutiao.io&amp;amp;utm_medium=toutiao.io&amp;amp;utm_source=toutiao.io&quot;&gt;各大热补丁方案分析和比较&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3&gt;自定义view案例&lt;/h3&gt;
+
+&lt;h4&gt;继承 view 重写draw方式&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/tianjian4592/article/details/44538605&quot;&gt;一个绚丽的loading动效分析与实现&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/leafloadingview.gif&quot; alt=&quot;leafloadingview&quot; title=&quot;leafloadingview&quot;&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;继承 ViewGroup 方式&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://blog.csdn.net/lmj623565791/article/details/43131133&quot;&gt;Android 打造炫目的圆形菜单 秒秒钟高仿建行圆形菜单&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/jh.gif&quot; alt=&quot;jhview&quot; title=&quot;jhview&quot;&gt; &lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/lmj623565791/article/details/38352503&quot;&gt;FlowLayout&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/flowlayout.jpeg&quot; alt=&quot;flowlayout&quot; title=&quot;flowlayout&quot;&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;继承已有的控件&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://blog.csdn.net/lmj623565791/article/details/39257409&quot;&gt;Android 高仿 QQ5.0 侧滑菜单效果 自定义控件来袭&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr&gt;
+
+&lt;h3&gt;屏幕适配&amp;amp;&amp;amp;版本适配&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://blog.csdn.net/lmj623565791/article/details/49990941&quot;&gt;Android AutoLayout全新的适配方式 堪称适配终结者&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr&gt;
+
+&lt;h3&gt;主题样式&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://www.hidroh.com/2015/02/16/support-multiple-themes-android-app/&quot;&gt;Supporting multiple themes in your Android app&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr&gt;
 
 &lt;h3&gt;编译工具&lt;/h3&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;干货文章&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;https://github.com/amfe/article/issues/11&quot;&gt;15年双11手淘前端技术巡演&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;中国技术力量系列文章&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;amp;mid=400995270&amp;amp;idx=1&amp;amp;sn=5b090490896f95b061a3ccd86baa3274&amp;amp;scene=1&amp;amp;srcid=1119mZSvN34bQPpsbUAdJxVG&amp;amp;key=d72a47206eca0ea9a079092ac4160e128b43889e67ae9ecddaa63de5821106c2eed3f483dcb44b0627ee921aad527deb&amp;amp;ascene=0&amp;amp;uin=MTE1NjEyMDk2MA%3D%3D&amp;amp;devicetype=iMac+MacBookPro9%2C2+OSX+OSX+10.11.1+build(15B42)&amp;amp;version=11020201&amp;amp;pass_ticket=VMULx2IXHdhtqBM7a3LaMyVGmmEfa84BQxPV6%2FzTPABG2SXGuGAGuMpg2uLw%2F3Wv&quot;&gt;阿里无线总监南天硅谷谈手淘技术架构演进细节&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;amp;mid=400805032&amp;amp;idx=1&amp;amp;sn=08b6948f26846329d4f7bfaedd2f1c18&amp;amp;scene=21#wechat_redirect&quot;&gt;腾讯技术十七年&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;amp;mid=400284628&amp;amp;idx=2&amp;amp;sn=e376a90a338e65fec50cb32922e19093&amp;amp;scene=21#wechat_redirect&quot;&gt;阿里技术崛起之路&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Android项目重构之路系列&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://android.jobbole.com/82083/&quot;&gt;实现篇&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://android.jobbole.com/82076/&quot;&gt;架构篇&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://android.jobbole.com/82080/&quot;&gt;界面篇&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;A useful stack on android&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://saulmm.github.io/2015/02/02/A%20useful%20stack%20on%20android%20%231,%20architecture/&quot;&gt;architecture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://saulmm.github.io/a-useful-stack-on-android-2-user-interface/&quot;&gt;user-interface&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://saulmm.github.io/a-useful-stack-on-android-3-compatibility/&quot;&gt;compatibility&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;ReactiveX &amp;amp;&amp;amp; RxJava&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://gank.io/post/560e15be2dca930e00da1083&quot;&gt;给 Android 开发者的 RxJava 详解 作者经验分享 值得拜读&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;https://mcxiaoke.gitbooks.io/rxdocs/content/index.html&quot;&gt;ReactiveX文档中文翻译&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;性能优化系列&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://android.jobbole.com/81944/&quot;&gt;给 App 提速：Android 性能优化总结&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.devtf.cn/?p=1097&quot;&gt;加速你的Android应用&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLOU2XLYxmsIKEOXh5TwZEv89aofHzNCiu&quot;&gt;Android Performance Patterns 需翻墙&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.kuqin.com/shuoit/20150928/348295.html&quot;&gt;Android性能调优利器StrictMode&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;React Native&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://wiki.jikexueyuan.com/project/react-native/?hmsr=weixin_wiki_1124#rd&amp;amp;sukey=fc78a68049a14bb2da2f1223ce6e476b8bf98a7d79530bca29e3b19024872cb7cc75328e45f5c94f43e72f84da3bd2ff&quot;&gt;React Native 官方文档中文版&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Android开发兵器库&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://toutiao.io/subjects/11740&quot;&gt;头条 天盟&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.csdn.net/article/2014-06-16/2820224-top-5-android-libraries&quot;&gt;Android开发者必知的5个开源库&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;硬技能&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.devtf.cn/?p=1079&quot;&gt;30分钟搭建一个android的私有Maven仓库&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.judymax.com/archives/1087&quot;&gt;Android 6.0 源代码编译实践&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;面试资料&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzA5MzE4MjgyMw==&amp;amp;mid=400574044&amp;amp;idx=1&amp;amp;sn=d5ffc7d3f214c11fefbcd82eb6c73f91&amp;amp;scene=0#wechat_redirect&quot;&gt;程序员不得不知道的技术面试资料大全&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://hit-alibaba.github.io/interview/index.html&quot;&gt;笔试面试知识整理&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/&quot;&gt;LeetCode&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.cs.usfca.edu/%7Egalles/visualization/Algorithms.html&quot;&gt;Data Structure Visualizations&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.nowcoder.com/&quot;&gt;牛客网&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 17:40:32 +0800</pubDate>
-        <link>http://jingdq.github.io/android-technical-aspects/</link>
-        <guid isPermaLink="true">http://jingdq.github.io/android-technical-aspects/</guid>
+        <link>http://jingdq.github.io/Android_Technical_-Aspects/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/Android_Technical_-Aspects/</guid>
       </item>
     
       <item>
@@ -373,6 +512,7 @@
 &lt;li&gt; &lt;a href=&quot;http://blog.csdn.net/mobile/newest.html&quot;&gt;CSDN 移动开发&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt; &lt;a href=&quot;http://futurice.com/blog/&quot;&gt;Futurice&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt; &lt;a href=&quot;http://android-developers.blogspot.hk/&quot;&gt;Android Developers Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://engineering.meetme.com/&quot;&gt;MeetMe&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3&gt;个人博客&lt;/h3&gt;
@@ -393,6 +533,18 @@
 &lt;li&gt;&lt;a href=&quot;http://fernandocejas.com&quot;&gt;Fernaado Cejas 一些比较新的技术&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://lucasr.org/&quot;&gt;Lucas Fackbook android工程师&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.kymjs.com/&quot;&gt;张涛 无论何时，请保持学者的谦逊与宽容&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jiajixin.cn/&quot;&gt;Jason&amp;#39;s Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.oyanglul.us/index.html&quot;&gt;Jichao Ouyang&amp;#39;s Blog 前端达人&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/amfe/article&quot;&gt;amfe Ali前端达人&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.curious-creature.com/&quot;&gt;Romain Guy Android Performance Case Study Follow-up&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pguardiola.com/blog/&quot;&gt;Pablo Guardiola&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://mindhacks.cn/&quot;&gt;刘未鹏 Mind Hacks 思维改变生活&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.caoqq.net/&quot;&gt;曹庆庆 海外留学生 进击的牛人&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/&quot;&gt;阮一峰的网络日志&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://coolshell.cn/&quot;&gt;刘皓的酷壳&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.udinic.com/&quot;&gt;Udi Cohen&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/zhaokaiqiang1992?viewmode=contents&quot;&gt;赵凯强 凯子哥&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.judymax.com/&quot;&gt;Maxiee 江南大学硕士生&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;hr&gt;
@@ -417,11 +569,38 @@
 &lt;li&gt;&lt;a href=&quot;http://blog.jobbole.com&quot;&gt;jobbole伯乐在线&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://toutiao.io/&quot;&gt;开发者头条&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.jianshu.com&quot;&gt;简书&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.html-js.com/&quot;&gt;前端技术网站&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.infoq.com/cn&quot;&gt;InfoQ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.dataguru.cn/&quot;&gt;练数成金&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.devtf.cn/&quot;&gt;开发者技术前线&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h2&gt;Github&lt;/h2&gt;
+
+&lt;h3&gt;Group&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;https://github.com/alibaba&quot;&gt;Alibaba&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;https://github.com/trello&quot;&gt;trello&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;https://github.com/square&quot;&gt;square&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;https://github.com/facebook&quot;&gt;facebook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;https://github.com/google&quot;&gt;google&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;https://github.com/aosp-exchange-group&quot;&gt;codekk&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Personal&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;https://github.com/fedepaol?tab=repositories&quot;&gt;fedepaol&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;微信公众号&lt;/h2&gt;
+
+&lt;h2&gt;Weibo&lt;/h2&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 17:40:32 +0800</pubDate>
-        <link>http://jingdq.github.io/android-source/</link>
-        <guid isPermaLink="true">http://jingdq.github.io/android-source/</guid>
+        <link>http://jingdq.github.io/Android_Source/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/Android_Source/</guid>
       </item>
     
   </channel>
