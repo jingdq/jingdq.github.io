@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Android 窗口开发系列:实现一个简单的引导view(二) – My technical gallery – Android Developer Gallery</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="上篇博客带着大家做了一个简单的引导view,但是运行在android 6.0上程序就会崩溃，大致报了如下的异常信息：
+        android.view.WindowManager$BadTokenException: 
+        Unable to add window android.view.ViewRootImpl$W@aa2ed -- permission denied for this window type
+        at android.view.ViewRootImpl.setView(ViewRootImpl.java:591)
+        at android.view.WindowManagerGlobal.addView(WindowManagerGlobal.java:310)
+        at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:85)
+" />
+    <meta property="og:description" content="上篇博客带着大家做了一个简单的引导view,但是运行在android 6.0上程序就会崩溃，大致报了如下的异常信息：
+        android.view.WindowManager$BadTokenException: 
+        Unable to add window android.view.ViewRootImpl$W@aa2ed -- permission denied for this window type
+        at android.view.ViewRootImpl.setView(ViewRootImpl.java:591)
+        at android.view.WindowManagerGlobal.addView(WindowManagerGlobal.java:310)
+        at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:85)
+" />
+    
+    <meta name="author" content="My technical gallery" />
+
+    
+    <meta property="og:title" content="Android 窗口开发系列:实现一个简单的引导view(二)" />
+    <meta property="twitter:title" content="Android 窗口开发系列:实现一个简单的引导view(二)" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="My technical gallery - Android Developer Gallery" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="https://avatars0.githubusercontent.com/u/4002834?v=3&s=460" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">My technical gallery</a></h1>
+            <p class="site-description">Android Developer Gallery</p>
+          </div>
+
+          <nav>
+            <a href="/">Blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Android 窗口开发系列:实现一个简单的引导view(二)</h1>
+
+  <div class="entry">
+    <p>上篇博客带着大家做了一个简单的引导view,但是运行在android 6.0上程序就会崩溃，大致报了如下的异常信息：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">        android.view.WindowManager$BadTokenException: 
+        Unable to add window android.view.ViewRootImpl$W@aa2ed -- permission denied for this window type
+        at android.view.ViewRootImpl.setView(ViewRootImpl.java:591)
+        at android.view.WindowManagerGlobal.addView(WindowManagerGlobal.java:310)
+        at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:85)
+</code></pre></div>
+<p>看到上面的log,大家应该都清楚是权限被拒绝的原因，这是因为在Android6.0版本app权限的申请放在了程序运行时，权限机制变了，咱们在Manifest文件中配置的</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    &lt;uses-permission android:name=&quot;android.permission.SYSTEM_ALERT_WINDOW&quot; /&gt;
+</code></pre></div>
+<p>不起作用了，那么这个问题该怎么解决了? 这就是咱们今天主要的话题。</p>
+
+<p>在android6.0系统中，用户在app运行时候授权app需要的权限，而不是在用户安装或者升级app的时候，所以这样做的好处是给用户很大的自由度来控制那些app运行时需要权限的功能。了解到android6.0这个特性后，咱们就需要在运行时申请操作窗口的权限了。ok,废话不多说，直接上代码。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
+
+    button = (Button) findViewById(R.id.button);
+    button.setOnClickListener(this);
+
+
+    //申请操作窗口权限
+    if (!Settings.canDrawOverlays(this)) {
+
+        Intent it = new Intent();
+        it.setAction(&quot;android.settings.action.MANAGE_OVERLAY_PERMISSION&quot;);
+        //package:your packagename
+        it.setData(Uri.parse(&quot;package:com.jingdq.dialogwindow&quot;));
+        startActivity(it);
+
+    }
+
+
+
+
+}
+</code></pre></div>
+<p>再次运行程序，会出现如下授权界面</p>
+
+<p><img src="/images/grantpermission.png" alt="grantpermission"> </p>
+
+<p>授权后，程序就能正常运行在android 6.0 系统了。</p>
+
+<p><img src="/images/guideview_new1.gif" alt="guideview_new1"> </p>
+
+<p>是不是很简单。当然对于看过android官方文档的同学可能要问 ，app不是通过调用 requestPermissions() 这个方法来请求权限的么，然后通过复写</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults)
+</code></pre></div>
+<p>这个方法来获取用户的授权结果，的确酱紫，但是存在一些特殊的权限，比如 SYSTEM<em>ALERT</em>WINDOW 和 WRITE<em>SETTINGS  这些敏感的权限，如果我们使用这些权限必须先
+在manifest文件中声明，然后通过Intent 发送请求。对于非特殊的权限，比如READ</em>CONTACTS 大家参考如下代码请求</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">     if (ContextCompat.checkSelfPermission(this,
+            Manifest.permission.READ_CONTACTS)
+            != PackageManager.PERMISSION_GRANTED) {
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.READ_CONTACTS)) {
+
+            showRationaleDialog(R.string.permission_alert_rationale);
+        } else {
+
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_CONTACTS},
+                    MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+
+        }
+    }
+
+
+     @Override
+public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+    switch (requestCode) {
+
+        case MY_PERMISSIONS_REQUEST_READ_CONTACTS:
+            if (grantResults.length &gt; 0
+                    &amp;&amp; grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                Log.e(Tag, &quot;permission was granted&quot;);
+
+
+            } else {
+
+                Log.e(Tag, &quot;permission was denied&quot;);
+            }
+            break;
+
+    }
+
+
+}
+</code></pre></div>
+<p>不出意外的情况下程序运行时会弹出请求授权的Dialog,如下图</p>
+
+<p><img src="/images/guideview_new2.gif" alt="guideview_new2"> </p>
+
+<p>如果要请求多个权限，重复写上面的这些请求代码是不是很抓狂，这里笔者推荐一个开源库 <a href="https://github.com/jingdq/PermissionsDispatcher">PermissionsDispatcher</a>，专门解决这个问题的,是不是感觉生活美好多了。</p>
+
+<p>PS: </p>
+
+<p>1.有些朋友可能在小米手机上运行不正常，需要手动配置系统设置里面的选项才能正常，如果让用户自己来配置，那么使用体验会大打折扣，所以这个问题我们还是要解决的。还记得上篇文章GuideView类中的initWindowParam方面里面窗口的类型是TYPE<em>PHONE么？那么请朋友们把窗口的类型改为TYPE</em>TOAST，然后再跑一边试试。</p>
+
+<p>2.至于这个引导view动画会不会跟Dialog有冲突，请大家留意这片文章中的最后一个截图动画就知晓答案了。</p>
+
+  </div>
+
+  <div class="date">
+    Written on November 29, 2015
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'jingdqgitpage';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:dongqij@gmail.com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/jingdq"><i class="svg-icon github"></i></a>
+
+
+
+<a href="/feed.xml"><i class="svg-icon rss"></i></a>
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-69908083-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/Android_Window_GuideView-1/',
+		  'title': 'Android 窗口开发系列:实现一个简单的引导view(二)'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

@@ -7,7 +7,120 @@
     <atom:link href="http://jingdq.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Android 窗口开发系列:实现一个简单的引导view</title>
+        <title>Android 窗口开发系列:实现一个简单的引导view(二)</title>
+        <description>&lt;p&gt;上篇博客带着大家做了一个简单的引导view,但是运行在android 6.0上程序就会崩溃，大致报了如下的异常信息：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;        android.view.WindowManager$BadTokenException: 
+        Unable to add window android.view.ViewRootImpl$W@aa2ed -- permission denied for this window type
+        at android.view.ViewRootImpl.setView(ViewRootImpl.java:591)
+        at android.view.WindowManagerGlobal.addView(WindowManagerGlobal.java:310)
+        at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:85)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;看到上面的log,大家应该都清楚是权限被拒绝的原因，这是因为在Android6.0版本app权限的申请放在了程序运行时，权限机制变了，咱们在Manifest文件中配置的&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    &amp;lt;uses-permission android:name=&amp;quot;android.permission.SYSTEM_ALERT_WINDOW&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;不起作用了，那么这个问题该怎么解决了? 这就是咱们今天主要的话题。&lt;/p&gt;
+
+&lt;p&gt;在android6.0系统中，用户在app运行时候授权app需要的权限，而不是在用户安装或者升级app的时候，所以这样做的好处是给用户很大的自由度来控制那些app运行时需要权限的功能。了解到android6.0这个特性后，咱们就需要在运行时申请操作窗口的权限了。ok,废话不多说，直接上代码。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
+
+    button = (Button) findViewById(R.id.button);
+    button.setOnClickListener(this);
+
+
+    //申请操作窗口权限
+    if (!Settings.canDrawOverlays(this)) {
+
+        Intent it = new Intent();
+        it.setAction(&amp;quot;android.settings.action.MANAGE_OVERLAY_PERMISSION&amp;quot;);
+        //package:your packagename
+        it.setData(Uri.parse(&amp;quot;package:com.jingdq.dialogwindow&amp;quot;));
+        startActivity(it);
+
+    }
+
+
+
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;再次运行程序，会出现如下授权界面&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/grantpermission.png&quot; alt=&quot;grantpermission&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;授权后，程序就能正常运行在android 6.0 系统了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/guideview_new1.gif&quot; alt=&quot;guideview_new1&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;是不是很简单。当然对于看过android官方文档的同学可能要问 ，app不是通过调用 requestPermissions() 这个方法来请求权限的么，然后通过复写&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个方法来获取用户的授权结果，的确酱紫，但是存在一些特殊的权限，比如 SYSTEM&lt;em&gt;ALERT&lt;/em&gt;WINDOW 和 WRITE&lt;em&gt;SETTINGS  这些敏感的权限，如果我们使用这些权限必须先
+在manifest文件中声明，然后通过Intent 发送请求。对于非特殊的权限，比如READ&lt;/em&gt;CONTACTS 大家参考如下代码请求&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;     if (ContextCompat.checkSelfPermission(this,
+            Manifest.permission.READ_CONTACTS)
+            != PackageManager.PERMISSION_GRANTED) {
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.READ_CONTACTS)) {
+
+            showRationaleDialog(R.string.permission_alert_rationale);
+        } else {
+
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_CONTACTS},
+                    MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+
+        }
+    }
+
+
+     @Override
+public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+    switch (requestCode) {
+
+        case MY_PERMISSIONS_REQUEST_READ_CONTACTS:
+            if (grantResults.length &amp;gt; 0
+                    &amp;amp;&amp;amp; grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                Log.e(Tag, &amp;quot;permission was granted&amp;quot;);
+
+
+            } else {
+
+                Log.e(Tag, &amp;quot;permission was denied&amp;quot;);
+            }
+            break;
+
+    }
+
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;不出意外的情况下程序运行时会弹出请求授权的Dialog,如下图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/guideview_new2.gif&quot; alt=&quot;guideview_new2&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;如果要请求多个权限，重复写上面的这些请求代码是不是很抓狂，这里笔者推荐一个开源库 &lt;a href=&quot;https://github.com/jingdq/PermissionsDispatcher&quot;&gt;PermissionsDispatcher&lt;/a&gt;，专门解决这个问题的,是不是感觉生活美好多了。&lt;/p&gt;
+
+&lt;p&gt;PS: &lt;/p&gt;
+
+&lt;p&gt;1.有些朋友可能在小米手机上运行不正常，需要手动配置系统设置里面的选项才能正常，如果让用户自己来配置，那么使用体验会大打折扣，所以这个问题我们还是要解决的。还记得上篇文章GuideView类中的initWindowParam方面里面窗口的类型是TYPE&lt;em&gt;PHONE么？那么请朋友们把窗口的类型改为TYPE&lt;/em&gt;TOAST，然后再跑一边试试。&lt;/p&gt;
+
+&lt;p&gt;2.至于这个引导view动画会不会跟Dialog有冲突，请大家留意这片文章中的最后一个截图动画就知晓答案了。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 29 Nov 2015 00:00:00 +0800</pubDate>
+        <link>http://jingdq.github.io/Android_Window_GuideView-1/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/Android_Window_GuideView-1/</guid>
+      </item>
+    
+      <item>
+        <title>Android 窗口开发系列:实现一个简单的引导view(一)</title>
         <description>&lt;p&gt;最近事情比较多，没精力抽时间写点东西了，不得不承认自己是个低产的coder,好了，废话不多说，今天跟大家实现一个小的功能，主要用来引导用户进行界面操作的目的。先来看看咱们要做的东西吧。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/guideview.gif&quot; alt=&quot;GuideView&quot; title=&quot;GuideView&quot;&gt; &lt;/p&gt;
@@ -474,6 +587,7 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://toutiao.io/subjects/11740&quot;&gt;头条 天盟&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.csdn.net/article/2014-06-16/2820224-top-5-android-libraries&quot;&gt;Android开发者必知的5个开源库&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/vicpinm/ActiveAndroidRx&quot;&gt;ActiveAndroidRx Wrapper around ActiveAndroid&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3&gt;硬技能&lt;/h3&gt;
@@ -481,6 +595,7 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.devtf.cn/?p=1079&quot;&gt;30分钟搭建一个android的私有Maven仓库&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.judymax.com/archives/1087&quot;&gt;Android 6.0 源代码编译实践&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.liaohuqiu.net/cn/posts/git-abc/&quot;&gt;Gitlab 简单配置使用&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3&gt;面试资料&lt;/h3&gt;
@@ -545,6 +660,7 @@
 &lt;li&gt;&lt;a href=&quot;http://blog.udinic.com/&quot;&gt;Udi Cohen&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/zhaokaiqiang1992?viewmode=contents&quot;&gt;赵凯强 凯子哥&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.judymax.com/&quot;&gt;Maxiee 江南大学硕士生&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.liaohuqiu.net/cn/&quot;&gt;Srain &lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;hr&gt;
