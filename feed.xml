@@ -448,6 +448,41 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
       </item>
     
       <item>
+        <title>Android Custom View </title>
+        <description>&lt;h3&gt;Android Custom View 按照view的实现方式分类，不断更新中......&lt;/h3&gt;
+
+&lt;h3&gt;继承 view 重写draw方式&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/tianjian4592/article/details/44538605&quot;&gt;一个绚丽的loading动效分析与实现&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/leafloadingview.gif&quot; alt=&quot;leafloadingview&quot; title=&quot;leafloadingview&quot;&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;继承 ViewGroup 方式&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://blog.csdn.net/lmj623565791/article/details/43131133&quot;&gt;Android 打造炫目的圆形菜单 秒秒钟高仿建行圆形菜单&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/jh.gif&quot; alt=&quot;jhview&quot; title=&quot;jhview&quot;&gt; &lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/lmj623565791/article/details/38352503&quot;&gt;FlowLayout&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/flowlayout.jpeg&quot; alt=&quot;flowlayout&quot; title=&quot;flowlayout&quot;&gt; &lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;继承内置控件方式&lt;/h3&gt;
+
+&lt;h3&gt;组合View方式&lt;/h3&gt;
+</description>
+        <pubDate>Mon, 09 Nov 2015 17:40:32 +0800</pubDate>
+        <link>http://jingdq.github.io/Android_CustomView/</link>
+        <guid isPermaLink="true">http://jingdq.github.io/Android_CustomView/</guid>
+      </item>
+    
+      <item>
         <title>Android Technical Aspects</title>
         <description>&lt;p&gt;技术汇总，不断完善中......&lt;/p&gt;
 
@@ -478,30 +513,6 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
 
 &lt;hr&gt;
 
-&lt;h3&gt;自定义view案例&lt;/h3&gt;
-
-&lt;h4&gt;继承 view 重写draw方式&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/tianjian4592/article/details/44538605&quot;&gt;一个绚丽的loading动效分析与实现&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/leafloadingview.gif&quot; alt=&quot;leafloadingview&quot; title=&quot;leafloadingview&quot;&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4&gt;继承 ViewGroup 方式&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt; &lt;a href=&quot;http://blog.csdn.net/lmj623565791/article/details/43131133&quot;&gt;Android 打造炫目的圆形菜单 秒秒钟高仿建行圆形菜单&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/jh.gif&quot; alt=&quot;jhview&quot; title=&quot;jhview&quot;&gt; &lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/lmj623565791/article/details/38352503&quot;&gt;FlowLayout&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/flowlayout.jpeg&quot; alt=&quot;flowlayout&quot; title=&quot;flowlayout&quot;&gt; &lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
 &lt;h4&gt;继承已有的控件&lt;/h4&gt;
 
 &lt;ol&gt;
@@ -528,38 +539,6 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
 
 &lt;h3&gt;编译工具&lt;/h3&gt;
 
-&lt;hr&gt;
-
-&lt;h2&gt;干货文章&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt; &lt;a href=&quot;https://github.com/amfe/article/issues/11&quot;&gt;15年双11手淘前端技术巡演&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3&gt;中国技术力量系列文章&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt; &lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;amp;mid=400995270&amp;amp;idx=1&amp;amp;sn=5b090490896f95b061a3ccd86baa3274&amp;amp;scene=1&amp;amp;srcid=1119mZSvN34bQPpsbUAdJxVG&amp;amp;key=d72a47206eca0ea9a079092ac4160e128b43889e67ae9ecddaa63de5821106c2eed3f483dcb44b0627ee921aad527deb&amp;amp;ascene=0&amp;amp;uin=MTE1NjEyMDk2MA%3D%3D&amp;amp;devicetype=iMac+MacBookPro9%2C2+OSX+OSX+10.11.1+build(15B42)&amp;amp;version=11020201&amp;amp;pass_ticket=VMULx2IXHdhtqBM7a3LaMyVGmmEfa84BQxPV6%2FzTPABG2SXGuGAGuMpg2uLw%2F3Wv&quot;&gt;阿里无线总监南天硅谷谈手淘技术架构演进细节&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;amp;mid=400805032&amp;amp;idx=1&amp;amp;sn=08b6948f26846329d4f7bfaedd2f1c18&amp;amp;scene=21#wechat_redirect&quot;&gt;腾讯技术十七年&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;amp;mid=400284628&amp;amp;idx=2&amp;amp;sn=e376a90a338e65fec50cb32922e19093&amp;amp;scene=21#wechat_redirect&quot;&gt;阿里技术崛起之路&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3&gt;Android项目重构之路系列&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://android.jobbole.com/82083/&quot;&gt;实现篇&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://android.jobbole.com/82076/&quot;&gt;架构篇&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://android.jobbole.com/82080/&quot;&gt;界面篇&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3&gt;A useful stack on android&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt; &lt;a href=&quot;http://saulmm.github.io/2015/02/02/A%20useful%20stack%20on%20android%20%231,%20architecture/&quot;&gt;architecture&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://saulmm.github.io/a-useful-stack-on-android-2-user-interface/&quot;&gt;user-interface&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://saulmm.github.io/a-useful-stack-on-android-3-compatibility/&quot;&gt;compatibility&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
 &lt;h3&gt;ReactiveX &amp;amp;&amp;amp; RxJava&lt;/h3&gt;
 
 &lt;ol&gt;
@@ -574,6 +553,8 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.devtf.cn/?p=1097&quot;&gt;加速你的Android应用&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLOU2XLYxmsIKEOXh5TwZEv89aofHzNCiu&quot;&gt;Android Performance Patterns 需翻墙&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.kuqin.com/shuoit/20150928/348295.html&quot;&gt;Android性能调优利器StrictMode&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://android.jobbole.com/82092/&quot;&gt;Android 性能优化之使用线程池处理异步任务&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzA3MDMyMjkzNg==&amp;amp;mid=401114090&amp;amp;idx=1&amp;amp;sn=00853da32009b3f28cbcf9d8acb23f66&amp;amp;scene=1&amp;amp;srcid=1130LzNDQifktvSK54f0GZ4l&amp;amp;key=ff7411024a07f3eb19fe2531c9fc184adb47ca999fa4222739a30492c5a5d2711f42fefd6bb0b277588bda0543f2b0b9&amp;amp;ascene=0&amp;amp;uin=MTE1NjEyMDk2MA%3D%3D&amp;amp;devicetype=iMac+MacBookPro9%2C2+OSX+OSX+10.11.1+build(15B42)&amp;amp;version=11020201&amp;amp;pass_ticket=YnEKfWK80HSa5BOK1UvO9n5xoFDtqMgru%2BaZRFPF3vz99x8NpvVPBayFpq4JeoGQ&quot;&gt;10 条提升Android 性能的建议&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3&gt;React Native&lt;/h3&gt;
@@ -582,13 +563,28 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
 &lt;li&gt; &lt;a href=&quot;http://wiki.jikexueyuan.com/project/react-native/?hmsr=weixin_wiki_1124#rd&amp;amp;sukey=fc78a68049a14bb2da2f1223ce6e476b8bf98a7d79530bca29e3b19024872cb7cc75328e45f5c94f43e72f84da3bd2ff&quot;&gt;React Native 官方文档中文版&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3&gt;Android开发兵器库&lt;/h3&gt;
+&lt;h3&gt;Android 军火库&lt;/h3&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://toutiao.io/subjects/11740&quot;&gt;头条 天盟&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.csdn.net/article/2014-06-16/2820224-top-5-android-libraries&quot;&gt;Android开发者必知的5个开源库&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/vicpinm/ActiveAndroidRx&quot;&gt;ActiveAndroidRx Wrapper around ActiveAndroid&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h3&gt;网络&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://android.jobbole.com/81564/&quot;&gt;Android 各大网络请求库的比较及实战&lt;/a&gt;    &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://android.jobbole.com/82058/&quot;&gt;Android 一个改善的okHttp封装库&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;SQLite &amp;amp;&amp;amp; ORM&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;https://realm.io/cn/&quot;&gt;Realm 替代SQLite和Core Data。为你省下数周的时间和数千行的代码，帮你创造出更棒的用户体验&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;安全&lt;/h3&gt;
 
 &lt;h3&gt;硬技能&lt;/h3&gt;
 
@@ -606,6 +602,42 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/&quot;&gt;LeetCode&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.cs.usfca.edu/%7Egalles/visualization/Algorithms.html&quot;&gt;Data Structure Visualizations&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.nowcoder.com/&quot;&gt;牛客网&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;干货文章&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;https://github.com/amfe/article/issues/11&quot;&gt;15年双11手淘前端技术巡演&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;中国技术力量系列文章&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;amp;mid=400995270&amp;amp;idx=1&amp;amp;sn=5b090490896f95b061a3ccd86baa3274&amp;amp;scene=1&amp;amp;srcid=1119mZSvN34bQPpsbUAdJxVG&amp;amp;key=d72a47206eca0ea9a079092ac4160e128b43889e67ae9ecddaa63de5821106c2eed3f483dcb44b0627ee921aad527deb&amp;amp;ascene=0&amp;amp;uin=MTE1NjEyMDk2MA%3D%3D&amp;amp;devicetype=iMac+MacBookPro9%2C2+OSX+OSX+10.11.1+build(15B42)&amp;amp;version=11020201&amp;amp;pass_ticket=VMULx2IXHdhtqBM7a3LaMyVGmmEfa84BQxPV6%2FzTPABG2SXGuGAGuMpg2uLw%2F3Wv&quot;&gt;阿里无线总监南天硅谷谈手淘技术架构演进细节&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;amp;mid=400805032&amp;amp;idx=1&amp;amp;sn=08b6948f26846329d4f7bfaedd2f1c18&amp;amp;scene=21#wechat_redirect&quot;&gt;腾讯技术十七年&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;amp;mid=400284628&amp;amp;idx=2&amp;amp;sn=e376a90a338e65fec50cb32922e19093&amp;amp;scene=21#wechat_redirect&quot;&gt;阿里技术崛起之路&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Android项目重构&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;####Keegan小钢 的重构之路&lt;/p&gt;
+
+&lt;p&gt;a.  &lt;a href=&quot;http://android.jobbole.com/82083/&quot;&gt;实现篇&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;b.  &lt;a href=&quot;http://android.jobbole.com/82076/&quot;&gt;架构篇&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;c.  &lt;a href=&quot;http://android.jobbole.com/82080/&quot;&gt;界面篇&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;A useful stack on android&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt; &lt;a href=&quot;http://saulmm.github.io/2015/02/02/A%20useful%20stack%20on%20android%20%231,%20architecture/&quot;&gt;architecture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://saulmm.github.io/a-useful-stack-on-android-2-user-interface/&quot;&gt;user-interface&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://saulmm.github.io/a-useful-stack-on-android-3-compatibility/&quot;&gt;compatibility&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 17:40:32 +0800</pubDate>
@@ -661,6 +693,8 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
 &lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/zhaokaiqiang1992?viewmode=contents&quot;&gt;赵凯强 凯子哥&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.judymax.com/&quot;&gt;Maxiee 江南大学硕士生&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.liaohuqiu.net/cn/&quot;&gt;Srain &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://androidperformance.com/&quot;&gt;Gracker 性能优化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.danlew.net/&quot;&gt;Dan Lew &lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;hr&gt;
@@ -689,6 +723,8 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
 &lt;li&gt;&lt;a href=&quot;http://www.infoq.com/cn&quot;&gt;InfoQ&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.dataguru.cn/&quot;&gt;练数成金&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.devtf.cn/&quot;&gt;开发者技术前线&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://android-arsenal.com/&quot;&gt;android-arsenal 开源库 最新的开源项目&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://alamkanak.github.io/android-libraries-and-resources/&quot;&gt;android-libraries-and-resources 按照标签区分&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2&gt;Github&lt;/h2&gt;
